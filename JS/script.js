@@ -1,6 +1,6 @@
 // variaveis e seleção de elementos
 
-const apiKey = "c8550a293af4668a479a0105a82676d0";
+const apiKey = "Sua chave API AQUI";
 const apiCountryURL = 'https://flagcdn.com/w20/ua.png';
 
 const cityinput = document.querySelector('#city-input');
