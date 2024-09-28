@@ -1,5 +1,5 @@
-// variaveis e seleção de elementos
-const apiKey = "Insira sua chave API aqui";
+// Variáveis e seleção de elementos
+const apiKey = "Insira sua chave API";
 
 const cityinput = document.querySelector('#city-input');
 const searchBtn = document.querySelector('#search');
@@ -12,8 +12,7 @@ const countryElement = document.querySelector('#country');
 const humidityElement = document.querySelector('#humidity span');
 const windElement = document.querySelector('#wind span');
 
-const weathercontainer = document.querySelector('#weather-data');
-const hide = 'hide'; // Certifique-se de que está definido como string
+const weathercontainer = document.querySelector('#weather-data'); // Corrigido
 
 // Funções
 const getWeatherData = async (city) => {
@@ -27,6 +26,7 @@ const getWeatherData = async (city) => {
     } catch (error) {
         console.error(error);
         alert('Erro ao buscar os dados do tempo. Verifique o nome da cidade.');
+        return null; // Retorna null em caso de erro
     }
 };
 
@@ -41,25 +41,33 @@ const showWeatherData = async (city) => {
     humidityElement.innerHTML = `${data.main.humidity} %`;
     windElement.innerHTML = `${data.wind.speed} km/h`;
 
-    weathercontainer.classList.remove(hide);
+    weathercontainer.classList.remove('hide'); // Corrigido para string
 };
 
 // Eventos
 searchBtn.addEventListener('click', async (e) => {
     e.preventDefault();
 
-    const city = cityinput.value;
+    const city = cityinput.value.trim(); // Remove espaços em branco
 
-    console.log(city);
-    await showWeatherData(city);
+    if (city) {
+        console.log(city);
+        await showWeatherData(city);
+    } else {
+        alert('Por favor, insira um nome de cidade.');
+    }
 });
 
-// Corrigindo o nome da variável
-cityinput.addEventListener("keyup", (e) => {
+// Evento para o botão Enter
+cityinput.addEventListener("keyup", async (e) => {
     if (e.code === "Enter") {
-        const city = e.target.value;
-
-        showWeatherData(city);
+        const city = e.target.value.trim(); // Remove espaços em branco
+        if (city) {
+            console.log(city);
+            await showWeatherData(city);
+        } else {
+            alert('Por favor, insira um nome de cidade.');
+        }
     }
 });
 
