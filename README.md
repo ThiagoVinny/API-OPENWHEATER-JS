@@ -30,7 +30,14 @@
 
 ![Captura de tela 2024-09-28 012215](https://github.com/user-attachments/assets/9ba1750a-cbab-4e04-9aee-6b0d50a5f6d8)
 
+# Video do Projeto
+
+https://drive.google.com/file/d/1l0oWl8LZH5gWa51EF3z5PCe0YFRKmTPj/view?usp=drive_link
+
+
+
 ## Como Usar 🛠️
+
 
 1. **Clone o repositório**:
    ```bash
